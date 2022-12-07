@@ -9,25 +9,20 @@ In the previous project, we re-analyzing, on a UCA Mesocenter computational clus
 
 Datasets were collected from European Nucleotide Archive (ENA) https://www.ebi.ac.uk/ena on 2021-07-26 by Nadia Goué with enaDataGet tool https://www.ebi.ac.uk/about/news/service-news/new-tools-download-data-ena included in inhouse script ena_array_atac.slurm
 
-In this project, we work on these following subsets : 
-
-ss_50k_0h_R1_1.fastq.gz  
-ss_50k_0h_R1_2.fastq.gz  
-ss_50k_0h_R2_1.fastq.gz  
-ss_50k_0h_R2_2.fastq.gz  
-ss_50k_0h_R3_1.fastq.gz  
-ss_50k_0h_R3_2.fastq.gz  
-ss_50k_24h_R1_1.fastq.gz  
-ss_50k_24h_R1_2.fastq.gz  
-ss_50k_24h_R2_1.fastq.gz  
-ss_50k_24h_R2_2.fastq.gz  
-ss_50k_24h_R3_1.fastq.gz  
-ss_50k_24h_R3_2.fastq.gz  
+SRR4785152 50k-Rep1-0h-sample.0h GSM2367179 0.7G  
+SRR4785153 50k-Rep2-0h-sample.0h GSM2367180 0.7G  
+SRR4785154 50k-Rep3-0h-sample.0h GSM2367181 0.7G  
+SRR4785341 50k-24h-R1-sample.24h.2 GSM2367368 0.6G  
+SRR4785342 50k-24h-R2-sample.24h.2 GSM2367369 0.7G  
+SRR4785343 50k-24h-R3-sample.24h.2 GSM2367370 0.6G  
 
 ## Code usage
 ### 1) Essential files
 
-The Snakemake worflow will need some special files to work. Use the following files (that you can find in this github project) to execute properly the workflow :  
+The Snakemake worflow will need some special files to work. Use the following files (that you can find in this github project) to execute properly the workflow : 
+
+1) working environments  
+
 scripts/envs/fastqc.yaml  
 scripts/envs/trim.yaml  
 scripts/envs/bowtie2.yaml  
@@ -35,7 +30,13 @@ scripts/envs/picard.yaml
 scripts/envs/deeptools.yaml  
 scripts/envs/mac2.yaml  
 scripts/envs/bedtools.yaml  
+
+2) Config file  
+
 scripts/config/config.yaml  
+
+3) Snakemake workflow  
+
 scripts/Snakefile  
 
 ### 2) How to run the workflow 
