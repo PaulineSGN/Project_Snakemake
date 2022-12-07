@@ -25,7 +25,10 @@ rule all:
         expand("results/MACS2/{subsample}_trim_mapped_sorted_q2_nodup_model.r", subsample = config["subsamples"]),
         expand("results/MACS2/{subsample}_trim_mapped_sorted_q2_nodup_peaks.narrowPeak", subsample = config["subsamples"]),
         expand("results/MACS2/{subsample}_trim_mapped_sorted_q2_nodup_peaks.xls", subsample = config["subsamples"]),
-        expand("results/MACS2/{subsample}_trim_mapped_sorted_q2_nodup_summits.bed", subsample = config["subsamples"])
+        expand("results/MACS2/{subsample}_trim_mapped_sorted_q2_nodup_summits.bed", subsample = config["subsamples"]),
+        expand("results/bedtools/{subsample}_trim_mapped_sorted_q2_nodup_0h.bed", subsample = config["bed"]),
+        expand("results/bedtools/{subsample}_trim_mapped_sorted_q2_nodup_24h.bed", subsample = config["bed"]),
+        expand("results/bedtools/0h-24h_intersect_{subsample}.bed", subsample = config["bed"])
 
 rule fastqc_init:
     input:
@@ -196,3 +199,26 @@ rule macs2:
        mkdir -p results/macs2
        macs2 callpeak -t {input} -n {wildcards.subsample}_trim_mapped_sorted_q2_nodup -f BAM -g mm --outdir "results/MACS2"
        """
+
+rule bedtools:
+     input:
+        O = expand("results/MACS2/{subsample}_trim_mapped_sorted_q2_nodup_summits.bed", subsample = config["O"]),
+        twf = expand("results/MACS2/{subsample}_trim_mapped_sorted_q2_nodup_summits.bed", subsample = config["twf"])
+     output:
+        O = "results/bedtools/{subsample}_trim_mapped_sorted_q2_nodup_0h.bed",
+        twf = "results/bedtools/{subsample}_trim_mapped_sorted_q2_nodup_24h.bed",
+        fin = "results/bedtools/0h-24h_intersect_{subsample}.bed"
+     threads: 8
+     conda:
+        "envs/bedtools.yaml"
+     log:
+        "logs/{subsample}_bedtools_0h-24h.log"
+     message:
+        "Executing bedtools on : {input}"
+     shell:
+        """
+        mkdir -p results/bedtools
+        cat {input.O} > {output.O} 
+        cat {input.twf} > {output.twf}
+        bedtools intersect -ubam  -a {output.O} -b {output.twf}  > {output.fin}
+        """

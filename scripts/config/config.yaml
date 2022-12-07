@@ -34,4 +34,15 @@ subsamples:
  ss_50k_24h_R2: data/subset/ss_50k_24h_R2
  ss_50k_24h_R3: data/subset/ss_50k_24h_R3
 
+O:
+ ss_50k_0h_R1: data/subset/ss_50k_0h_R1
+ ss_50k_0h_R2: data/subset/ss_50k_0h_R2
+ ss_50k_0h_R3: data/subset/ss_50k_0h_R3
+
+twf:
+ ss_50k_24h_R1: data/subset/ss_50k_24h_R1
+ ss_50k_24h_R2: data/subset/ss_50k_24h_R2
+ ss_50k_24h_R3: data/subset/ss_50k_24h_R3
+
 multibam: data_vis
+bed : peaks
