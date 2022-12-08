@@ -16,8 +16,22 @@ SRR4785341 50k-24h-R1-sample.24h.2 GSM2367368 0.6G
 SRR4785342 50k-24h-R2-sample.24h.2 GSM2367369 0.7G  
 SRR4785343 50k-24h-R3-sample.24h.2 GSM2367370 0.6G  
 
-For this project I work with this subsets : 
+For this project I work with this following subsets :  
 
+ss_50k_0h_R1_1.fastq.gz  
+ss_50k_0h_R1_2.fastq.gz  
+ss_50k_0h_R2_1.fastq.gz  
+ss_50k_0h_R2_2.fastq.gz  
+ss_50k_0h_R3_1.fastq.gz  
+ss_50k_0h_R3_2.fastq.gz  
+ss_50k_24h_R1_1.fastq.gz  
+ss_50k_24h_R1_2.fastq.gz  
+ss_50k_24h_R2_1.fastq.gz  
+ss_50k_24h_R2_2.fastq.gz  
+ss_50k_24h_R3_1.fastq.gz  
+ss_50k_24h_R3_2.fastq.gz  
+
+Please adapt the code by replace subsets by raws if you want to work on raw data.
 
 ## Code usage
 ### 1) Essential files
