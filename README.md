@@ -16,6 +16,9 @@ SRR4785341 50k-24h-R1-sample.24h.2 GSM2367368 0.6G
 SRR4785342 50k-24h-R2-sample.24h.2 GSM2367369 0.7G  
 SRR4785343 50k-24h-R3-sample.24h.2 GSM2367370 0.6G  
 
+For this project I work with this subsets : 
+
+
 ## Code usage
 ### 1) Essential files
 
